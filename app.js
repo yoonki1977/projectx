@@ -28,8 +28,8 @@ router.get('/people', function(req, res) {
         {name: 'klee', url: 'assets/klee.jpg'},
         {name: 'syjung', url: 'assets/syjung.png'},
         {name: 'dhson', url: 'assets/dhson.jpg'},
+        {name: 'joonhan', url: 'http://cse.postech.ac.kr/eng/wp-content/uploads/2017/05/professor18-168x191.jpg'},        
         {name: 'mscha', url: 'assets/mscha.jpg'},
-        {name: 'joonhan', url: 'http://cse.postech.ac.kr/eng/wp-content/uploads/2017/05/professor18-168x191.jpg'},
     ];
     res.json(people);
 });
