@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />    
+    <title>Project X Team</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="./team.js"></script>    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body class="container body-content" ng-app="pxApp" ng-controller="pxCtrl as pxCtrl" style="background-color: #3f0e44;">
+    <div class="masthead clearfix">
+        <div class="inner">
+            <nav class="nav nav-masthead"  style="float: right; margin-right: 98px;">
+            <a class="nav-link active" style="color: white" href="index.html">Home</a>
+            <a class="nav-link" style="color: white" href="#">Team</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="text-center" style="margin-top: 8rem;">   
+        <h1>
+            <font color="white">P(roject)</font> 
+            <font style="color:#996cf6; font-weight: bold">X</font>
+            <font color="white">is built and maintained by these people</font> 
+        </h1>
+
+        <br>
+        
+        <ul style="list-style: none">
+            <li ng-repeat="people in pxCtrl.people"
+                style="background-image: url({{people.url}}); background-size: 100px; height: 100px; width: 100px; float: left; display: block; position: relative;"
+                ng-style="pxCtrl.selected != $index && {opacity: 0.5} || pxCtrl.selected == $index && {opacity: 1}"
+                ng-mouseenter="pxCtrl.selected = $index;"
+                ng-mouseleave="pxCtrl.selected = null;">
+                <span style="position: absolute; bottom: 2px; right: 5px; color: #fff; text-align: right; font-weight: bold; font-size: 13px; text-shadow: 2px 2px #000;"
+                      ng-show="pxCtrl.selected == $index">
+                    {{people.name}}
+                </span>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
