@@ -33,7 +33,8 @@ router.get('/people', function(req, res) {
         {name: 'mscha', url: 'assets/mscha.jpg'},
         {name: 'leesy', url: 'http://cse.postech.ac.kr/eng/wp-content/uploads/2017/05/professor12-168x191.jpg'},
         {name: 'woo', url: 'assets/woo.jpeg'},
-        {name: 'ko', url: 'assets/postech.jpg'}  
+        {name: 'ko', url: 'assets/postech.jpg'},
+        {name: 'lawch', url: 'assets/lawch.png'}, 
     ];
     res.json(people);
 });
