@@ -37,7 +37,8 @@ router.get('/people', function(req, res) {
         {name: 'lawch', url: 'assets/lawch.png'}, 
         {name: 'dahn', url: 'assets/dhhwang.png'}, 
           {name: 'yongseok', url: 'assets/Yongseok_Park.jpg'},
-          {name: 'swparkz', url: 'assets/swparkz.png'}
+          {name: 'swparkz', url: 'assets/swparkz.png'},
+        {name: 'gsongsong', url: 'assets/sjeon.jpg'}
     ];
     res.json(people);
 });
