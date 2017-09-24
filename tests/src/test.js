@@ -22,9 +22,16 @@ module.exports = {
 
         // Add "Add more tests" into a text box
         // and hit the "Add" button, now the list has "Add more tests"        
-        browser.assert.fail('Finish the test');
+        browser
+        .waitForElementVisible('input[type=text]', 1000)
+        .setValue('input[type=text]', 'Add more tests')
+        .waitForElementVisible('button[id=addItem]', 1000)
+        .click('button[id=addItem]')
+        .pause(1000)
+        .assert.containsText('#lists', 'Add more tests');
 
         // Add "Learn how to use git". Now the list has "Learn how to use git".
+        browser.assert.fail('Finish the test');
 
         // click "Team" link to check if the title is "Team"
 
