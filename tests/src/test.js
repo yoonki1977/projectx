@@ -14,10 +14,15 @@ module.exports = {
 
         // click "TODO" link to visit TODO page
         // check if the title is "TODO list"
-        .assert.fail('Finish the test');
+        .useXpath()
+        .waitForElementVisible("//a[text()='TODO']", 1000)
+        .click("//a[text()='TODO']")
+        .useCss()
+        .assert.title('TODO list');
 
         // Add "Add more tests" into a text box
         // and hit the "Add" button, now the list has "Add more tests"        
+        browser.assert.fail('Finish the test');
 
         // Add "Learn how to use git". Now the list has "Learn how to use git".
 
