@@ -15,6 +15,7 @@ var port = process.env.PORT || 8080;
 var router = express.Router();
 router.get('/people', function(req, res) {
     var people = [
+        {name: 'ddolsoon', url: 'assets/ddolsoon.png'},
         {name: 'water', url: 'assets/fa2ri.jpg'},
         {name: 'newthink', url: 'assets/Happyday.png'},
         {name: 'wschae', url: 'assets/wschae.jpg'},
