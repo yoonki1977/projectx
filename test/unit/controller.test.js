@@ -1,9 +1,10 @@
 describe('MainController', function(){
     beforeEach(module('demo'));
     it('Should have a todo list', inject(function($controller){
-        var myController = $controller('MainController');
+        var scope = {};
+        var myController = $controller('MainController', {$scope:scope});
 
-        myController.list.should.not.empty;
-        myController.list.should.contain('Finish First Push');
+        scope.list.should.not.empty;
+        scope.list.should.contain('Finish First Push');
     }));    
 });
