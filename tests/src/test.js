@@ -56,10 +56,13 @@ module.exports = {
         .assert.title('TODO list');     
 
         // Check the list still has "Add more tests" and "Learn how to use git"
-        browser.assert.fail('Finish the test');
+        browser
+        .assert.containsText('#lists', 'Add more tests')
+        .assert.containsText('#lists', 'Learn how to use git');
 
         // remove "Add more tests" and check if "Add more tests" is gone
-        
+        browser.assert.fail('Finish the test');
+
         // Remember to call the .end() method when you want to close your test
         browser.end();
     }    
