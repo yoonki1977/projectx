@@ -3,9 +3,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" />     
     <title>TODO list</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="./todo.js"></script>     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
-<body class="container body-content" style="background-color: #3f0e44;">
+<body class="container body-content" 
+    ng-app="demo" ng-controller="MainController" style="background-color: #3f0e44;">
     <div class="masthead clearfix">
         <div class="inner">
             <nav class="nav nav-masthead"  style="float: right; margin-right: 98px;">
@@ -15,6 +18,18 @@
             </nav>
         </div>
     </div>
+
+    <!-- Existing items rows -->
+    <div class="row" id="lists">
+        <div class="col-sm-4 col-sm-offset-4">
+            <!-- loop over the todo list -->
+            <div ng-repeat="item in list" style="padding:10px;color: white;">
+                {{item}}
+            </div>
+        </div>     
+    </div>
+
+    <br>
 
     <div style="margin-top: 8rem;">    
         <!-- New Item row -->
@@ -27,11 +42,12 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-8 text-center">
-                        <input type="text" class="form-control" 
+                        <input type="text" class="form-control"
+                            ng-model="newItem"
                                placeholder="Learn Test-driven development">
                     </div>
                     <div class="col-sm-2 text-center">
-                        <button id='addItem' class="btn btn-primary">Add</button>
+                        <button id='addItem' ng-click="addItem(newItem)" class="btn btn-primary">Add</button>
                     </div>                    
                 </div>
             </div>                    
