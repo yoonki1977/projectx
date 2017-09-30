@@ -16,8 +16,26 @@
         </div>
     </div>
 
-    <div class="text-center" style="margin-top: 8rem;">    
-        <img src="assets/pxlogo.png" alt="logo">
+    <div style="margin-top: 8rem;">    
+        <!-- New Item row -->
+        <form role="form">
+            <div class="form-group">
+                <div class="row">
+                    <label for="newItemDetails" style="color: white">
+                        New Item Details:
+                    </label>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 text-center">
+                        <input type="text" class="form-control" 
+                               placeholder="Learn Test-driven development">
+                    </div>
+                    <div class="col-sm-2 text-center">
+                        <button id='addItem' class="btn btn-primary">Add</button>
+                    </div>                    
+                </div>
+            </div>                    
+        </form> 
     </div>    
 </body>
 </html>
