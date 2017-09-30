@@ -5,5 +5,5 @@ describe('MainController', function(){
 
         myController.list.should.not.empty;
         myController.list.should.contain('Finish First Push');
-    }));
+    }));    
 });
