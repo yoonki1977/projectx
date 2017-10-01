@@ -44,6 +44,10 @@ router.get('/people', function(req, res) {
     res.json(people);
 });
 
+router.get('/todo', function(req, res) {
+    res.json(['Finish First Push']);
+});
+
 app.use('/api', router);
 app.listen(port);
 console.log('Magic happens on port ' + port);
