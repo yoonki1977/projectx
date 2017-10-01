@@ -44,8 +44,24 @@ router.get('/people', function(req, res) {
     res.json(people);
 });
 
+var todos = [
+    "Finish First Push",
+    "Read 'No Silver Bullet'",
+    "Study Agile methods",
+];
+
 router.get('/todo', function(req, res) {
-    res.json(['Finish First Push']);
+    res.json(todos);
+});
+
+router.post('/todo', function(req, res) {
+    todos.push(req.body.newItem);
+    res.json(
+        {
+            status: 'Item added',
+            item: req.body.newItem
+        }
+    );
 });
 
 app.use('/api', router);
