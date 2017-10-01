@@ -47,3 +47,5 @@ router.get('/people', function(req, res) {
 app.use('/api', router);
 app.listen(port);
 console.log('Magic happens on port ' + port);
+
+module.exports = app;
