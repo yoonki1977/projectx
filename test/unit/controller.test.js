@@ -1,8 +1,14 @@
 describe('MainController', function(){
     beforeEach(module('demo'));
-    it('Should have a todo list', inject(function($controller){
+    it('Should have a todo list', inject(function($controller, $httpBackend){
         var scope = {};
+        $httpBackend
+        .when('GET', '/api/todo')
+        .respond(['Finish First Push']);
+
         var myController = $controller('MainController', {$scope:scope});
+
+        $httpBackend.flush();
 
         scope.list.should.not.empty;
         scope.list.should.contain('Finish First Push');
