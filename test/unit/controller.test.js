@@ -14,11 +14,24 @@ describe('MainController', function(){
         scope.list.should.contain('Finish First Push');
     }));
 
-    it('Should add a new item', inject(function($controller){
+    it('Should add a new item', inject(function($controller, $httpBackend){
         var scope = {};
+        $httpBackend
+        .when('GET', '/api/todo')
+        .respond(['Finish First Push']);
+
+        $httpBackend        
+        .when('POST', '/api/todo')
+        .respond({
+            status: 'Item added',
+            item: "Read 'No Silver Bullet'"
+        });  
+
         var myController = $controller('MainController', {$scope:scope});
 
         scope.addItem("Read 'No Silver Bullet");
-        scope.list.should.contain("Read 'No Silver Bullet");
+        $httpBackend.flush();
+
+        scope.list.should.contain("Read 'No Silver Bullet'");
     }));      
 });

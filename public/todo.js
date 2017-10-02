@@ -7,6 +7,9 @@ demoApp.controller('MainController', ['$scope', '$http', function($scope, $http)
     });
         
     $scope.addItem = function(item) {
-        $scope.list.push(item);
+        $http.post('/api/todo', {newItem: item})
+        .then(function(response){
+            $scope.list.push(response.data.item);
+        });
     };
 }]);
