@@ -64,5 +64,36 @@ describe('TODO list', function() {
                 done();
             });       
         });
-    });       
+    });
+
+    describe('DELETE /api/todo', function() {   
+        it('Should remove a given item', function(done) {
+            chai.request(app)
+            .delete('/api/todo/'+encodeURIComponent('Learn F#'))
+            .end(function(err, res) {
+                should.not.exist(err);           
+                res.should.have.status(200);
+                res.type.should.equal('application/json');
+                res.body.should.have.property('status').equal('Item deleted');
+                res.body.should.have.property('item').equal('Learn F#');
+                done();
+            });       
+        });
+    });
+
+    describe.skip('Update after DELETE', function() {   
+        it('Should not have a deleted item after DELETE', function(done) {
+            chai.request(app)
+            .get('/api/todo')
+            .end(function(err, res) {
+                should.not.exist(err);           
+                res.should.have.status(200);
+                res.type.should.equal('application/json');
+                res.body.should.be.a('array');
+                console.log(res.body);
+                res.body.should.not.contains('Learn F#');
+                done();
+            });       
+        });
+    });             
 });
