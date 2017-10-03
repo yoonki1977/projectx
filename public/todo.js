@@ -10,6 +10,14 @@ demoApp.controller('MainController', ['$scope', '$http', function($scope, $http)
         $http.post('/api/todo', {newItem: item})
         .then(function(response){
             $scope.list.push(response.data.item);
+            $scope.newItem = '';
         });
     };
+
+    $scope.removeItem = function(item) {
+        $http.delete('/api/todo/' + encodeURIComponent(item))
+        .then(function(response){
+            $scope.list = $scope.list.filter(function (_item) { return _item != item; });
+        });
+    };    
 }]);
