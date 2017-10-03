@@ -66,7 +66,6 @@ router.post('/todo', function(req, res) {
 
 router.delete('/todo/:item', function(req, res) {
     var id = req.params['item'];
-    console.log('delete : ' + id);
     todos = todos.filter(function (item) { return item != id; });
     res.send({
         status: 'Item deleted',
