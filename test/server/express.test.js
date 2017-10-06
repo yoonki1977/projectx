@@ -90,7 +90,6 @@ describe('TODO list', function() {
                 res.should.have.status(200);
                 res.type.should.equal('application/json');
                 res.body.should.be.a('array');
-                console.log(res.body);
                 res.body.should.not.contains('Learn F#');
                 done();
             });       
