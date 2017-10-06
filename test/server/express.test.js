@@ -81,7 +81,7 @@ describe('TODO list', function() {
         });
     });
 
-    describe.skip('Update after DELETE', function() {   
+    describe('Update after DELETE', function() {   
         it('Should not have a deleted item after DELETE', function(done) {
             chai.request(app)
             .get('/api/todo')
