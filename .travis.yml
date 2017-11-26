@@ -1,19 +1,18 @@
 language: node_js
 node_js:
-  - "6"
-
+- '6'
 addons:
   google-chrome: latest
-
 before_install:
-  - export CHROME_BIN=/usr/bin/google-chrome
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-
+- export CHROME_BIN=/usr/bin/google-chrome
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 before_script:
-- "npm start &"
-
-script: 
-- "karma start karma.conf.js --single-run"
-- "PORT=8081 mocha test/server"
-- "nightwatch"
+- npm start &
+script:
+- karma start karma.conf.js --single-run
+- PORT=8081 mocha test/server
+- nightwatch
+notifications:
+  slack:
+    secure: kJbMpT57Hu6ZW3HwfVYIipiOQhBow/YPNracZS26JhjcAfbYsU256Skl81jAmm8FCb7kxZNt348bziRGUxBHo3HN+fSEEqdrPrCn713lf1xJC/6M+1vLQpCCh8NrYkmXlYd0LWhHYIygNosK+hZd/H4s6gxYYf2PqmGpy/BAmbAvhaxyKXy62lothLtwTUy+QK08Yjaz428C2CvlP7xEg5fRrIRO4v1HROpMtSLEAzvA47BoWQ270dXDu4VPwpA5afAgILFZkAy3UaOiXL1m35gyrrxRmtiJF0Fv714KCJO5r/ephbnbFGuU2cIqJdslTZMSfMFgCzDBVO3mvOqW8KUJ1Z6jeraRK/b/w9sjU1WZw61WMLQ9lC4xxSmNUQP4CAZLDFfQO3GGuGbb2ewbrk+jFP6kaoQXvTwtBxbtQzVwWUPskqkCU102wpAjhq5xMukMovc7Tpxx7k6t2DJOSFnfLy3zf6Gklfa0fZZF2u4fYOjDWIQVwgvGyXTpCRculTpZOWG83CxpzxDdBmhoAExGPKT/H23iIXFjtZjY4cadNdFraKk9E5PUVaZ0oFwiFbH7ED13CEwgOzcn5+Jh6xIZ77PvwOoeV/uW8+kBXWudc2z8DCbvzneH7Y1rtN1QvX+CdNIm/DWl50jHUjtP2uIuWnOzHRthiNba8kD9P98=
