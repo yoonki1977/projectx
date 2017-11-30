@@ -3,6 +3,20 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
+// db connection
+var mongoose = require('mongoose');
+var dbURI = process.env.MONGODB || 'mongodb://your-db-uri';
+mongoose.connect(dbURI, { useMongoClient : true });
+var con = mongoose.connection.on('connected', function () {
+    console.log('Mongoose connected');
+});
+mongoose.connection.on('error', function (err) {
+    console.log('Mongoose connection error: ' + err);
+});
+mongoose.connection.on('disconnected', function () {
+    console.log('Mongoose disconnected');
+});
+
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -49,32 +63,46 @@ router.get('/people', function(req, res) {
     res.json(people);
 });
 
-var todos = [
-    "Finish First Push",
-    "Read 'No Silver Bullet'",
-    "Study Agile methods",
-];
+// define model
+var todos = mongoose.model('Todo', { item: String });
 
 router.get('/todo', function(req, res) {
-    res.json(todos);
+    // use mongoose to get all todo items in the database
+    todos.find(function(err, data) {
+        if (err) {
+            res.send(err);
+        }
+
+        res.json(data);
+    });
 });
 
 router.post('/todo', function(req, res) {
-    todos.push(req.body.newItem);
-    res.json(
-        {
-            status: 'Item added',
-            item: req.body.newItem
+    // create a todo item
+    todos.create({ item: req.body.newItem }, function(err, data){
+        if (err) {
+            res.send(err);
         }
-    );
+
+        res.json({
+                status: 'Item added',
+                item: data
+            });        
+    });
 });
 
-router.delete('/todo/:item', function(req, res) {
-    var id = req.params['item'];
-    todos = todos.filter(function (item) { return item != id; });
-    res.send({
-        status: 'Item deleted',
-        item: id
+router.delete('/todo/:id', function(req, res) {
+    // remove a todo
+    todos.remove({ _id:req.params['id']}, function(err, data){
+        if (err)
+        {
+            res.send(err);
+        }
+
+        res.json({
+            status: 'Item deleted',
+            item: data
+        });
     });
 });
 
