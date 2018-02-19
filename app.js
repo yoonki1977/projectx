@@ -46,6 +46,7 @@ router.get('/people', function(req, res) {
         {name: 'kkim', url: 'assets/kkim.jpg'},
         {name:'life', url: 'assets/test.jpg'},
         {name: 'wskim', url: 'assets/wskim.jpg'},
+        {name: 'jwyoo', url: 'assets/JeongwooYoo.jpg'}
     ];
     res.json(people);
 });
