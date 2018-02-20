@@ -37,8 +37,8 @@ router.get('/people', function(req, res) {
         {name: 'leesy', url: 'http://cse.postech.ac.kr/eng/wp-content/uploads/2017/05/professor12-168x191.jpg'},
         {name: 'woo', url: 'assets/woo.jpeg'},
         {name: 'ko', url: 'assets/postech.jpg'},
-        {name: 'lawch', url: 'assets/lawch.png'}, 
-        {name: 'dahn', url: 'assets/dhhwang.png'}, 
+        {name: 'lawch', url: 'assets/lawch.png'},
+        {name: 'dahn', url: 'assets/dhhwang.png'},
         {name: 'yongseok', url: 'assets/Yongseok_Park.jpg'},
         {name: 'swparkz', url: 'assets/swparkz.png'},
         {name: 'gsongsong', url: 'assets/sjeon.jpg'},
@@ -46,7 +46,8 @@ router.get('/people', function(req, res) {
         {name: 'kkim', url: 'assets/kkim.jpg'},
         {name:'life', url: 'assets/test.jpg'},
         {name: 'wskim', url: 'assets/wskim.jpg'},
-        {name: 'jwyoo', url: 'assets/JeongwooYoo.jpg'}
+        {name: 'jwyoo', url: 'assets/JeongwooYoo.jpg'},
+        {name: 'ywshin', 'url': 'assets/molang.jpg'}
     ];
     res.json(people);
 });
