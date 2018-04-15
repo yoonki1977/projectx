@@ -50,7 +50,8 @@ router.get('/people', function(req, res) {
         {name: 'jwyoo', url: 'assets/JeongwooYoo.jpg'},
         {name: 'ywshin', 'url': 'assets/molang.jpg'},
         {name: 'caxguru', 'url': 'assets/caxguru.png'},
-        {name: 'yahwang', 'url': 'http://yahwang.github.io/assets/img/yahwang_logo.png'}
+        {name: 'yahwang', 'url': 'http://yahwang.github.io/assets/img/yahwang_logo.png'},
+        {name: 'interhdr', url: 'assets/interhdr.jpg'}       
     ];
     res.json(people);
 });
