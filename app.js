@@ -48,7 +48,9 @@ router.get('/people', function(req, res) {
         {name: 'wskim', url: 'assets/wskim.jpg'},
         {name: 'jwyoo', url: 'assets/JeongwooYoo.jpg'},
         {name: 'ywshin', 'url': 'assets/molang.jpg'},
-        {name: 'yahwang', 'url': 'http://yahwang.github.io/assets/img/yahwang_logo.png'}
+        {name: 'yahwang', 'url': 'http://yahwang.github.io/assets/img/yahwang_logo.png'},
+        {name: 'dhkim', url: 'assets/dhkim.png'}
+
     ];
     res.json(people);
 });
