@@ -15,6 +15,7 @@ var port = process.env.PORT || 8080;
 var router = express.Router();
 router.get('/people', function(req, res) {
     var people = [
+        {name: 'sjkwak', url: 'assets/sjkwak.jpg'},
         {name: 'nykim', url: 'assets/nykim.jpg'},
         {name: 'ddolsoon', url: 'assets/ddolsoon.png'},
         {name: 'water', url: 'assets/fa2ri.jpg'},
@@ -48,9 +49,10 @@ router.get('/people', function(req, res) {
         {name: 'wskim', url: 'assets/wskim.jpg'},
         {name: 'jwyoo', url: 'assets/JeongwooYoo.jpg'},
         {name: 'ywshin', 'url': 'assets/molang.jpg'},
+        {name: 'caxguru', 'url': 'assets/caxguru.png'},
         {name: 'yahwang', 'url': 'http://yahwang.github.io/assets/img/yahwang_logo.png'},
+        {name: 'interhdr', url: 'assets/interhdr.jpg'},
         {name: 'dhkim', url: 'assets/dhkim.png'}
-
     ];
     res.json(people);
 });
