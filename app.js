@@ -52,7 +52,8 @@ router.get('/people', function(req, res) {
         {name: 'caxguru', 'url': 'assets/caxguru.png'},
         {name: 'yahwang', 'url': 'http://yahwang.github.io/assets/img/yahwang_logo.png'},
         {name: 'interhdr', url: 'assets/interhdr.jpg'},
-        {name: 'dhkim', url: 'assets/dhkim.png'}
+        {name: 'dhkim', url: 'assets/dhkim.png'},
+        {name: 'blues', url: 'assets/blues.png'}
     ];
     res.json(people);
 });
