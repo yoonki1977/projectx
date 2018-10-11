@@ -53,7 +53,8 @@ router.get('/people', function(req, res) {
         {name: 'yahwang', 'url': 'http://yahwang.github.io/assets/img/yahwang_logo.png'},
         {name: 'interhdr', url: 'assets/interhdr.jpg'},
         {name: 'dhkim', url: 'assets/dhkim.png'},
-        {name: 'blues', url: 'assets/blues.png'}
+        {name: 'blues', url: 'assets/blues.png'},
+        {name: 'dkim', url: 'assets/dkim.jpg'}
     ];
     res.json(people);
 });
